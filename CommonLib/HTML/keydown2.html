@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Тег SCRIPT</title>
+</head>
+<body>
+    <form>
+        <input value="" class="tel" placeholder="Введите номер телефона"><br />
+        <input value="" class="tel" placeholder="Введите номер телефона"><br />
+        <script>
+
+            window.addEventListener("DOMContentLoaded", function () {
+                [].forEach.call(document.querySelectorAll('.tel'), function (input) {
+
+                    let mask = "+7-(XXX) XXX_XX.XX";
+                    let number = mask;
+                    let placeholder = 'X';
+                    //как вариант let placeholder = number[number.length - 1];
+
+                    function focusTel(event) {
+                        this.value = number;
+                        setTimeout(() => {
+                            this.selectionStart = number.indexOf(placeholder);
+                            //вариант с курсором this.selectionEnd = this.selectionStart;
+                            //вариант с выделением
+                            this.selectionEnd = this.selectionStart + 1;
+                        });
+                    }
+
+                    function keydownTel(event) {
+                        event.preventDefault();
+
+                        var numberRegExp = new RegExp('[^' + placeholder + ']*');
+
+                        let numberLeftPart = number.match(numberRegExp)[0];
+                        let numberRightPart = number.substring(numberLeftPart.length);
+
+                        if (numberLeftPart.length < number.length && event.key >= 0 && event.key <= 9) {
+
+                            numberLeftPart = numberLeftPart + event.key;
+
+                            numberRightPart = number.substring(numberLeftPart.length);
+                        }
+
+                        if (numberLeftPart.length > mask.indexOf(placeholder) && event.key == 'Backspace') {
+
+                            let numberLastChar;
+
+                            let delimiterRegExp = new RegExp('[^0-9|' + placeholder + ']');
+
+                            do {
+                                numberLastChar = numberLeftPart[numberLeftPart.length - 1];
+
+                                numberLeftPart = numberLeftPart.slice(0, -1);
+
+                                numberRightPart = numberLastChar.replace(/\d/, placeholder) + numberRightPart;
+
+                            } while (delimiterRegExp.test(numberLastChar));
+                        }
+
+                        this.value = numberLeftPart + numberRightPart;
+
+                        number = this.value;
+
+                        this.selectionStart = number.indexOf(placeholder);
+                        //вариант с курсором this.selectionEnd = this.selectionStart;
+                        //вариант с выделением
+                        this.selectionEnd = this.selectionStart + 1;
+
+                    }
+
+                    input.addEventListener("focus", focusTel, true);
+                    input.addEventListener("keydown", keydownTel, true)
+                });
+            });
+        </script>
+    </form>
+</body>
+</html>
