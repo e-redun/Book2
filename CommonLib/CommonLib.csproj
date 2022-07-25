@@ -49,7 +49,6 @@
     <Compile Include="Enums\Formats.cs" />
     <Compile Include="Enums\States.cs" />
     <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\Bookmark.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
