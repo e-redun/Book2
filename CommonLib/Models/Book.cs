@@ -44,10 +44,10 @@ namespace CommonLib.Models
         public decimal RubPrice { get; set; }
 
         [JsonProperty("Состояние открыта/закрыта")]
-        public States State { get; set; }
+        public States State { get; private set; }
 
         [JsonProperty("Текущая страница")]
-        public int? CurrentPage { get; set; }
+        public int? CurrentPage { get; private set; }
 
 
         public void OpenAt(int page)
