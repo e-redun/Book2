@@ -10,6 +10,8 @@ namespace CommonLib.Models
     /// </summary>
     public class Book
     {
+        #region Свойства
+
         [JsonProperty("Название")]
         public string Title { get; set; }
 
@@ -37,11 +39,11 @@ namespace CommonLib.Models
         [JsonProperty("Типография")]
         public Organization Tipography { get; set; }
 
-        [JsonProperty("Закладки")]
-        public Dictionary<int, string> Bookmarks { get; private set; } = new Dictionary<int, string>();
-
         [JsonProperty("Цена руб.")]
         public decimal RubPrice { get; set; }
+
+        [JsonProperty("Закладки")]
+        public Dictionary<int, string> Bookmarks { get; private set; } = new Dictionary<int, string>();
 
         [JsonProperty("Состояние открыта/закрыта")]
         public States State { get; private set; }
@@ -49,6 +51,9 @@ namespace CommonLib.Models
         [JsonProperty("Текущая страница")]
         public int? CurrentPage { get; private set; }
 
+        #endregion
+
+        #region Методы
 
         public void OpenAt(int page)
         {
@@ -110,5 +115,7 @@ namespace CommonLib.Models
                 Console.WriteLine($"На стр. {page} не существует закладки");
             }
         }
+
+        #endregion
     }
 }
