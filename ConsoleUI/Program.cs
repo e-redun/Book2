@@ -49,9 +49,16 @@ namespace ClassBook
 
             book = jsonService.Deserialize(bookJson);
 
-            bookJson = jsonService.Serialize(book);
+            string bookJson2 = jsonService.Serialize(book);
 
-            Console.WriteLine(bookJson);
+            if (bookJson == bookJson2)
+            {
+                Console.WriteLine("Десериализация/сериализация выполняется корректно");
+            }
+            else
+            {
+                Console.WriteLine("Десериализация/сериализация выполняется с ошибками");
+            }
         }
     }
 }
