@@ -4,12 +4,12 @@ namespace CommonLib.Services.Factories
 {
     public class PersonFactory
     {
-        public Person CreatePerson(string firstname, string surname, string patronymic)
+        public Person CreatePerson(string surname, string firstname, string patronymic)
         {
             return new Person
             {
-                Firstname = firstname,
                 Surname = surname,
+                Firstname = firstname,
                 Patronymic = patronymic
             };
         }

@@ -16,7 +16,7 @@ namespace ClassBook
 
             List<Person> authors = new List<Person>
             {
-                personFactory.CreatePerson("Лев", "Толстой", "Николаевич")
+                personFactory.CreatePerson("Толстой", "Лев", "Николаевич")
             };
 
             BookService bookService = new BookService();
