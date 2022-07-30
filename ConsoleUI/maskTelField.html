@@ -15,13 +15,13 @@
 
                     let mask = "+7-(XXX) XXX_XX.XX";
                     let number = mask;
-                    let placeholder = 'X';
-                    //как вариант let placeholder = number[number.length - 1];
+                    let maskElement = 'X';
+                    //как вариант let maskElement = number[number.length - 1];
 
                     function focusTel(event) {
                         this.value = number;
                         setTimeout(() => {
-                            this.selectionStart = number.indexOf(placeholder);
+                            this.selectionStart = number.indexOf(maskElement);
                             //вариант с курсором this.selectionEnd = this.selectionStart;
                             //вариант с выделением
                             this.selectionEnd = this.selectionStart + 1;
@@ -43,11 +43,11 @@
                             numberRightPart = number.substring(numberLeftPart.length);
                         }
 
-                        if (numberLeftPart.length > mask.indexOf(placeholder) && event.key == 'Backspace') {
+                        if (numberLeftPart.length > mask.indexOf(maskElement) && event.key == 'Backspace') {
 
                             let numberLastChar;
 
-                            let delimiterRegExp = new RegExp('[^0-9|' + placeholder + ']');
+                            let delimiterRegExp = new RegExp('[^0-9|' + maskElement + ']');
 
                             do {
                                 numberLastChar = numberLeftPart[numberLeftPart.length - 1];
@@ -63,7 +63,7 @@
 
                         number = this.value;
 
-                        this.selectionStart = number.indexOf(placeholder);
+                        this.selectionStart = number.indexOf(maskElement);
                         //вариант с курсором this.selectionEnd = this.selectionStart;
                         //вариант с выделением
                         this.selectionEnd = this.selectionStart + 1;
