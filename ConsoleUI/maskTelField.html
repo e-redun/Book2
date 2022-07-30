@@ -31,7 +31,7 @@
                     function keydownTel(event) {
                         event.preventDefault();
 
-                        var numberRegExp = new RegExp('[^' + placeholder + ']*');
+                        var numberRegExp = new RegExp('[^' + maskElement + ']*');
 
                         let numberLeftPart = number.match(numberRegExp)[0];
                         let numberRightPart = number.substring(numberLeftPart.length);
@@ -54,7 +54,7 @@
 
                                 numberLeftPart = numberLeftPart.slice(0, -1);
 
-                                numberRightPart = numberLastChar.replace(/\d/, placeholder) + numberRightPart;
+                                numberRightPart = numberLastChar.replace(/\d/, maskElement) + numberRightPart;
 
                             } while (delimiterRegExp.test(numberLastChar));
                         }
