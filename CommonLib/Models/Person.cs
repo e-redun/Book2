@@ -13,13 +13,5 @@ namespace CommonLib.Models
 
         [JsonProperty("Отчество")]
         public string Patronymic { get; set; }
-
-        //[NonSerialized()]
-        //public string ShortName
-        //{
-        //    get {
-        //        return $"{Firstname[0]}. {Patronymic[0]}. {Surname}";
-        //    }
-        //}
     }
 }

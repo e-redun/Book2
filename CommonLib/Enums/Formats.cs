@@ -2,6 +2,9 @@
 
 namespace CommonLib.Enums
 {
+    /// <summary>
+    /// Форматы по ГОСТ 5773-90
+    /// </summary>
     public enum Formats
     {
         [EnumMember(Value = "70x90/16")]

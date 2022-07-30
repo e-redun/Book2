@@ -45,7 +45,7 @@ namespace ClassBook
 
             Console.WriteLine(bookJson);
 
-            // проверка
+            // проверка коррекности сериализация/десериализации
 
             book = jsonService.Deserialize(bookJson);
 
@@ -53,11 +53,11 @@ namespace ClassBook
 
             if (bookJson == bookJson2)
             {
-                Console.WriteLine("Десериализация/сериализация выполняется корректно");
+                Console.WriteLine("Сериализация/десериализация выполняется корректно");
             }
             else
             {
-                Console.WriteLine("Десериализация/сериализация выполняется с ошибками");
+                Console.WriteLine("Сериализация/десериализация выполняется с ошибками");
             }
         }
     }

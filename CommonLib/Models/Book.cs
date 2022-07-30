@@ -55,6 +55,10 @@ namespace CommonLib.Models
 
         #region Методы
 
+        /// <summary>
+        /// Открывает книгу на странице
+        /// </summary>
+        /// <param name="page">Страница</param>
         public void OpenAt(int page)
         {
 
@@ -69,13 +73,18 @@ namespace CommonLib.Models
             }
         }
 
+        /// <summary>
+        /// Закрывае книгу
+        /// </summary>
         public void Close()
         {
             State = States.Closed;
             CurrentPage = null;
         }
 
-
+        /// <summary>
+        /// Делает следующую страницу текущей
+        /// </summary>
         public void NextPage()
         {
             if (State == States.Open && CurrentPage < Pages)
@@ -84,6 +93,9 @@ namespace CommonLib.Models
             }
         }
 
+        /// <summary>
+        /// Делает предыдущую страницу текущей
+        /// </summary>
         public void PrevPage()
         {
             if (State == States.Open && CurrentPage > 1)
@@ -92,6 +104,11 @@ namespace CommonLib.Models
             }
         }
 
+        /// <summary>
+        /// Добавляет закладку
+        /// </summary>
+        /// <param name="note">Пояснение</param>
+        /// <param name="page">Страница</param>
         public void AddBookmark(string note, int page)
         {
             try
@@ -104,6 +121,10 @@ namespace CommonLib.Models
             }
         }
 
+        /// <summary>
+        /// Удаляет закладку на странице
+        /// </summary>
+        /// <param name="page">Страница</param>
         public void DeleteBookmark(int page)
         {
             try
