@@ -13,7 +13,7 @@
             window.addEventListener("DOMContentLoaded", function () {
                 [].forEach.call(document.querySelectorAll('.tel'), function (input) {
 
-                    let mask = "+7-(XXX) XXX_XX.XX";
+                    let mask = "тел. +7-(XXX) XXX_XX.XX";
                     let number = mask;
                     let maskElement = 'X';
                     //как вариант let maskElement = number[number.length - 1];
@@ -22,9 +22,9 @@
                         this.value = number;
                         setTimeout(() => {
                             this.selectionStart = number.indexOf(maskElement);
-                            //вариант с курсором this.selectionEnd = this.selectionStart;
                             //вариант с выделением
                             this.selectionEnd = this.selectionStart + 1;
+                            //вариант с курсором this.selectionEnd = this.selectionStart;
                         });
                     }
 
@@ -41,8 +41,6 @@
                             && event.key != " "                 // исключение нажатия пробела Прим. пробел преобразовывается к нулю
                         ) {
                             numberLeftPart = numberLeftPart + event.key;
-
-                            numberRightPart = number.substring(numberLeftPart.length);
                         }
 
                         if (numberLeftPart.length > mask.indexOf(maskElement) && event.key == 'Backspace') {
@@ -56,20 +54,18 @@
 
                                 numberLeftPart = numberLeftPart.slice(0, -1);
 
-                                numberRightPart = leftPartLastChar.replace(/\d/, maskElement) + numberRightPart;
-
                             } while (delimiterRegExp.test(leftPartLastChar));
                         }
 
-                        this.value = numberLeftPart + numberRightPart;
+                        numberRightPart = mask.substring(numberLeftPart.length);
 
-                        number = this.value;
+                        this.value = number = numberLeftPart + numberRightPart;
 
                         this.selectionStart = number.indexOf(maskElement);
-                        //вариант с курсором this.selectionEnd = this.selectionStart;
+
                         //вариант с выделением
                         this.selectionEnd = this.selectionStart + 1;
-
+                        //вариант с курсором this.selectionEnd = this.selectionStart;
                     }
 
                     input.addEventListener("focus", focusTel, true);
