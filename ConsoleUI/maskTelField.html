@@ -36,8 +36,10 @@
                         let numberLeftPart = number.match(numberRegExp)[0];
                         let numberRightPart = number.substring(numberLeftPart.length);
 
-                        if (numberLeftPart.length < number.length && event.key >= 0 && event.key <= 9) {
-
+                        if (numberLeftPart.length < number.length
+                            && event.key >= 0 && event.key <= 9 // нажатие цифр
+                            && event.key != " "                 // исключение нажатия пробела Прим. пробел преобразовывается к нулю
+                        ) {
                             numberLeftPart = numberLeftPart + event.key;
 
                             numberRightPart = number.substring(numberLeftPart.length);
