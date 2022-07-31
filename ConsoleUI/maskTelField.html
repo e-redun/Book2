@@ -28,6 +28,12 @@
                         });
                     }
 
+                    function blurTel(event) {
+                        if (this.value == mask) {
+                            this.value = '';
+                        }
+                    }
+
                     function keydownTel(event) {
                         event.preventDefault();
 
@@ -70,6 +76,7 @@
                     }
 
                     input.addEventListener("focus", focusTel, true);
+                    input.addEventListener("blur", blurTel, true)
                     input.addEventListener("keydown", keydownTel, true)
                 });
             });
