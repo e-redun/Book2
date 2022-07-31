@@ -45,18 +45,18 @@
 
                         if (numberLeftPart.length > mask.indexOf(maskElement) && event.key == 'Backspace') {
 
-                            let numberLastChar;
+                            let leftPartLastChar;
 
                             let delimiterRegExp = new RegExp('[^0-9|' + maskElement + ']');
 
                             do {
-                                numberLastChar = numberLeftPart[numberLeftPart.length - 1];
+                                leftPartLastChar = numberLeftPart[numberLeftPart.length - 1];
 
                                 numberLeftPart = numberLeftPart.slice(0, -1);
 
-                                numberRightPart = numberLastChar.replace(/\d/, maskElement) + numberRightPart;
+                                numberRightPart = leftPartLastChar.replace(/\d/, maskElement) + numberRightPart;
 
-                            } while (delimiterRegExp.test(numberLastChar));
+                            } while (delimiterRegExp.test(leftPartLastChar));
                         }
 
                         this.value = numberLeftPart + numberRightPart;
