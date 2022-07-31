@@ -109,7 +109,7 @@ namespace CommonLib.Models
         /// </summary>
         /// <param name="note">Пояснение</param>
         /// <param name="page">Страница</param>
-        public void AddBookmark(string note, int page)
+        public void AddBookmark(int page, string note)
         {
             try
             {

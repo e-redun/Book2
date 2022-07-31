@@ -33,8 +33,7 @@ namespace ClassBook
                                                 1500                                                // цена в рублях
                                                 );
 
-
-            book.AddBookmark("Наталья и Пьер", 50);
+            book.AddBookmark(50, "Наталья и Пьер");
 
             book.OpenAt(5);
             book.NextPage();
@@ -45,7 +44,7 @@ namespace ClassBook
 
             Console.WriteLine(bookJson);
 
-            // проверка коррекности сериализация/десериализации
+            // проверка корректности сериализация/десериализации
 
             book = jsonService.Deserialize(bookJson);
 
@@ -57,7 +56,7 @@ namespace ClassBook
             }
             else
             {
-                Console.WriteLine("Сериализация/десериализация выполняется с ошибками");
+                Console.WriteLine("Сериализация/десериализация выполняется С ОШИБКАМИ");
             }
         }
     }
