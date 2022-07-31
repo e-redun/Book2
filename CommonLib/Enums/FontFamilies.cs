@@ -3,7 +3,7 @@
 namespace CommonLib.Enums
 {
     /// <summary>
-    /// Набор гарнитур по ГОСТ 3489
+    /// Гарнитуры по ГОСТ 3489
     /// </summary>
     public enum FontFamilies
     {

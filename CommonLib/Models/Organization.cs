@@ -2,6 +2,9 @@
 
 namespace CommonLib.Models
 {
+    /// <summary>
+    /// Организация
+    /// </summary>
     public class Organization
     {
         [JsonProperty("Название")]

@@ -4,6 +4,9 @@
 /// </summary>
 namespace CommonLib.Enums
 {
+    /// <summary>
+    /// Состояния книги: Открыта/Закрыта
+    /// </summary>
     public enum States
     {
         [EnumMember(Value = "Закрыта")]
